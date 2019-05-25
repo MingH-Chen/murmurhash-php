@@ -84,16 +84,6 @@ class MurmurHashUtils
     private static function uint32Right($v, $n)
     {
         if ($n === 0) {
-            if (is_string($v)) {
-                if (PHP_INT_MAX > 2147483647) {
-                    $v = intval($v);
-                } else {
-                    $v = floatval($v);
-                }
-            }
-            if (!is_int($v)) {
-                $v = intval($v);
-            }
             if ((0 > $v) || ($v > 4294967295)) {
                 $v &= 4294967295;
                 if (0 > $v) {
